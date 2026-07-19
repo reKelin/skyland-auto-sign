@@ -2,6 +2,7 @@
 name: Auto Sign
 on:
   schedule:
+    - cron: '0 1 * * *'
     - cron: '0 9 * * *'
   workflow_dispatch:
 jobs:
@@ -28,6 +29,5 @@ jobs:
           SC3_SENDKEY: ${{ secrets.SC3_SENDKEY }}
           SC3_UID: ${{ secrets.SC3_UID }}
           EXIT_WHEN_FAIL: ${{ vars.EXIT_WHEN_FAIL }}
-          TZ: Asia/Shanghai
         run: |
           python src/main.py
